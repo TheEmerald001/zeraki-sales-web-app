@@ -1,4 +1,4 @@
-import {moduleAxios} from "../axios";
+import { moduleAxios } from "../axios";
 
 // basic api security
 export const createAccount = async (user_name, email, password) => {
@@ -9,12 +9,9 @@ export const createAccount = async (user_name, email, password) => {
   });
 };
 
-// basic api security
+// basic api security - modified to match mock spec
 export const userLogIn = async (user_name, password) => {
-  return await moduleAxios.get(`/users`, {
-    user_name,
-    password,
-  });
+  return await moduleAxios.get(`/users`);
 };
 
 // change user credentials
