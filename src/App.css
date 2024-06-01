@@ -1,0 +1,21 @@
+/* .App {
+  font-family: "IBM Plex Sans";
+} */
+
+body {
+  background-color: #fff;
+  margin: 0;
+  font-family: "IBM Plex Sans";
+}
+
+.MuiDataGrid-root .MuiDataGrid-cell {
+  border-bottom: none !important;
+}
+.MuiDataGrid-sortIcon {
+  opacity: inherit !important;
+}
+
+.MuiDataGrid-iconButtonContainer {
+  visibility: visible;
+  width: 0 !important;
+}
