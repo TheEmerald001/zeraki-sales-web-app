@@ -83,7 +83,7 @@ export default function SignIn() {
                 currentUser: setUser(email, password, res.data),
               })
             );
-            navigate("/dashboard");
+            navigate("/agent");
           } else {
             setValues({
               email: "",
