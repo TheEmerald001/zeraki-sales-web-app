@@ -4,18 +4,15 @@ import { useNavigate } from "react-router-dom";
 import {
   Typography,
   Avatar,
-  IconButton,
+  Button,
   Menu,
   MenuItem,
   Box,
   LinearProgress,
-  Chip
+  Chip,
 } from "@mui/material";
 import { red, green } from "@mui/material/colors";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
-import UploadFileIcon from "@mui/icons-material/UploadFile";
-import AddIcon from "@mui/icons-material/Add";
 import CustomDataGrid from "../utilities/CustomDataGrid";
 
 // Functions
@@ -50,34 +47,20 @@ function getChipProps(params) {
 }
 
 const OnboardedSchoolsTable = () => {
-  const [anchorElNav, setAnchorElNav] = useState(null);
   const [schoolsData, setSchoolsData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [rowParams, setRowParams] = useState({});
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const handleCloseMenu = () => {
-    setAnchorElNav(null);
+  const handleSchoolActionsClick = (params) => {
+    dispatch(setSchoolDetails({ schoolDetails: params.row }));
+    navigate("view");
   };
-  const handleSchoolActionsClick = (params) => (event) => {
-    setRowParams(params.row);
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleSchoolActionsMobile = (params) => (event) => {
-    setRowParams(params);
-    setAnchorElNav(true);
+  const handleSchoolActionsMobile = (params)  => {
+    dispatch(setSchoolDetails({ schoolDetails: params }));
+    navigate("view");
   };
 
-  const handleMenuItemClick = (prop) => {
-    handleCloseMenu();
-    dispatch(setSchoolDetails({ schoolDetails: rowParams }));
-    navigate(prop, {
-      state: {
-        rowParams,
-      },
-    });
-  };
 
   const fetchSchools = () => {
     setLoading(true);
@@ -90,66 +73,7 @@ const OnboardedSchoolsTable = () => {
   useEffect(() => {
     fetchSchools();
   }, []);
-  const OnboardedSchoolsActions = () => {
-    return (
-      <>
-        
-        <Menu
-          id="menu-appbar"
-          anchorEl={anchorElNav}
-          anchorOrigin={{
-            vertical: "center",
-            horizontal: "center",
-          }}
-          keepMounted
-          transformOrigin={{
-            vertical: "top",
-            horizontal: "center",
-          }}
-          open={Boolean(anchorElNav)}
-          onClose={handleCloseMenu}
-        >
-          
-          <MenuItem onClick={() => handleMenuItemClick("view")}>
-            <Box display="flex" alignItems="center" textAlign="center">
-              <VisibilityOutlinedIcon
-                sx={{
-                  color: `primary.main`,
-                  mr: 1,
-                  fontSize: "medium",
-                }}
-              />
-              View Details
-            </Box>
-          </MenuItem>
-          <MenuItem onClick={() => handleCloseMenu()}>
-            <Box display="flex" alignItems="center" textAlign="center">
-              <AddIcon
-                sx={{
-                  color: `primary.main`,
-                  mr: 1,
-                  fontSize: "medium",
-                }}
-              />
-              Invoice School
-            </Box>
-          </MenuItem>
-          <MenuItem onClick={() => handleCloseMenu()}>
-            <Box display="flex" alignItems="center" textAlign="center">
-              <UploadFileIcon
-                sx={{
-                  color: `primary.main`,
-                  mr: 1,
-                  fontSize: "medium",
-                }}
-              />
-              School Collections
-            </Box>
-          </MenuItem>
-        </Menu>{" "}
-      </>
-    );
-  };
+ 
 
   const columns = [
     {
@@ -198,16 +122,23 @@ const OnboardedSchoolsTable = () => {
     },
     {
       field: "actions",
-      type: "actions",
-      headerName: "Actions",
-      width: 100,
+      headerName: "Quick Action",
+      width: 150,
       renderCell: (params) => {
         return (
-          <>
-            <IconButton onClick={handleSchoolActionsClick(params)}>
-              <MoreVertIcon />
-            </IconButton>
-          </>
+          <Button
+            variant="outlined"
+            onClick={() => handleSchoolActionsClick(params)}
+          >
+            <VisibilityOutlinedIcon
+              sx={{
+                color: `primary.main`,
+                mr: 1,
+                fontSize: "medium",
+              }}
+            />
+            View Details
+          </Button>
         );
       },
     },
@@ -227,7 +158,6 @@ const OnboardedSchoolsTable = () => {
           },
         }}
       >
-        <OnboardedSchoolsActions />
         {loading && <LinearProgress />}
         {!loading && <CustomDataGrid rows={schoolsData} columns={columns} />}
       </Box>
@@ -250,7 +180,7 @@ const OnboardedSchoolsTable = () => {
               <SchoolInfoCard
                 key={index}
                 schoolDetail={field}
-                menuOpen={handleSchoolActionsMobile(field)}
+                menuOpen={handleSchoolActionsMobile}
               />
             );
           })}

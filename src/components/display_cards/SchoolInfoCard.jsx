@@ -1,6 +1,6 @@
 import React from "react";
-import { Card, CardHeader, Typography, Box, Grid } from "@mui/material";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import { Card, CardHeader, Typography, Box, Grid, Button } from "@mui/material";
+import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import CustomAvatar from "../utilities/CustomAvatar";
 export default function SchoolInfoCard({ schoolDetail, menuOpen }) {
   return (
@@ -43,15 +43,20 @@ export default function SchoolInfoCard({ schoolDetail, menuOpen }) {
                   display="flex"
                   alignItems="center"
                   textAlign="center"
-                  onClick={() => menuOpen(schoolDetail)}
                 >
-                  <MoreHorizIcon
-                    sx={{
-                      color: `error.main`,
-                      mr: 1,
-                      fontSize: "medium",
-                    }}
-                  />
+                  <Button
+                    variant="outlined"
+                    onClick={() => menuOpen(schoolDetail)}
+                  >
+                    <VisibilityOutlinedIcon
+                      sx={{
+                        color: `primary.main`,
+                        mr: 1,
+                        fontSize: "medium",
+                      }}
+                    />
+                    View Details
+                  </Button>
                 </Box>
               </Grid>
             </Grid>
