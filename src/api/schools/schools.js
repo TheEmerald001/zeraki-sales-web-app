@@ -1,4 +1,4 @@
-import moduleAxios from "../axios";
+import { moduleAxios } from "../axios";
 
 //  Implements API Endpoints for School (and actions)
 //  i. View all schools
@@ -6,36 +6,18 @@ export const getSchools = async () => {
   return await moduleAxios.get(`/schools`);
 };
 
-//  ii. Search Schools by name
-export const serchSchools = async (name) => {
-  return await moduleAxios.get(`/schools?name=${name}`);
+// ii. Create a new School
+export const createSchool = async (school_details) => {
+  return await moduleAxios.post(`/schools`, school_details);
 };
 
-//  iii. Display schools by type
-export const getSchoolByType = async (school_type) => {
-  return await moduleAxios.get(`/schools?school_type=${school_type}`);
+//  iii. View school Details with invoices
+export const getSchoolInvoiceDetail = async (school_code) => {
+  return await moduleAxios.get(`/schools/${school_code}?_embed=invoices`);
 };
 
-//  iv. Display schools by products
-export const getSchoolByProduct = async (product) => {
-  return await moduleAxios.get(`/schools?product=${product}`);
+//  iv. View school Details with collections
+export const getSchoolCollectionDetail = async (school_code) => {
+  return await moduleAxios.get(`/schools/${school_code}?_embed=collections`);
 };
 
-//  v. View school Details: In details(metadata+finance overview)
-export const getSchoolDetail = async (school_code) => {
-  return await moduleAxios.get(`/schools/${school_code}`);
-};
-
-//  vi. View School Invoices
-export const getSchoolInvoices = async (school_code) => {
-  return await moduleAxios.get(`/invoices?school_ref${school_code}`);
-};
-
-//  vii. Invoice a school - this should be in accounts
-
-//  viii. View school Collections
-export const getSchoolCollections = async (school_code) => {
-  return await moduleAxios.get(`/collections?school_ref=${school_code}`);
-};
-
-//  ix. Make collections from school - this should be in accounts
