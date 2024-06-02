@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
@@ -12,17 +11,13 @@ import {
   LinearProgress,
   Chip
 } from "@mui/material";
-import EditIcon from "@mui/icons-material/Edit";
 import { red, green } from "@mui/material/colors";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
-import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
-import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
-import BlockIcon from "@mui/icons-material/Block";
-import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import AddIcon from "@mui/icons-material/Add";
 import CustomDataGrid from "../utilities/CustomDataGrid";
+
 // Functions
 import { getSchools } from "../../api/schools/schools.js";
 import { setSchoolDetails } from "../../features/school/schoolSlice.js";
@@ -42,7 +37,7 @@ function getChipProps(params) {
     };
   } else {
     return {
-      label: params.value,
+      label: "DEACTIVATED",
       style: {
         width: "200px",
         color: red[600],
@@ -61,7 +56,6 @@ const OnboardedSchoolsTable = () => {
   const [rowParams, setRowParams] = useState({});
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const location = useLocation();
 
   const handleCloseMenu = () => {
     setAnchorElNav(null);
@@ -88,9 +82,6 @@ const OnboardedSchoolsTable = () => {
   const fetchSchools = () => {
     setLoading(true);
     getSchools().then((res) => {
-    //   const activeSchools = res.data.filter(
-    //     (school) => school.status !== "DEACTIVATED"
-    //   );
       setSchoolsData(res.data);
       setLoading(false);
     });
@@ -131,7 +122,7 @@ const OnboardedSchoolsTable = () => {
               View Details
             </Box>
           </MenuItem>
-          <MenuItem onClick={() => handleMenuItemClick("invoics")}>
+          <MenuItem onClick={() => handleCloseMenu()}>
             <Box display="flex" alignItems="center" textAlign="center">
               <AddIcon
                 sx={{
@@ -140,10 +131,10 @@ const OnboardedSchoolsTable = () => {
                   fontSize: "medium",
                 }}
               />
-              Invoices
+              Invoice School
             </Box>
           </MenuItem>
-          <MenuItem onClick={() => handleMenuItemClick("colections")}>
+          <MenuItem onClick={() => handleCloseMenu()}>
             <Box display="flex" alignItems="center" textAlign="center">
               <UploadFileIcon
                 sx={{
@@ -152,7 +143,7 @@ const OnboardedSchoolsTable = () => {
                   fontSize: "medium",
                 }}
               />
-              Collections
+              School Collections
             </Box>
           </MenuItem>
         </Menu>{" "}
@@ -191,7 +182,7 @@ const OnboardedSchoolsTable = () => {
     },
     {
       field: "registration_number",
-      headerName: "Registration Number ",
+      headerName: "Registration No. ",
       width: 160,
     },
 
@@ -224,13 +215,12 @@ const OnboardedSchoolsTable = () => {
 
   return (
     <>
-      <Typography variant="h6" sx={{ ml: 2 }}>
-        View Onboarded Schools
+      <Typography variant="h6" fontWeight={600}>
+        Onboarded Schools
       </Typography>
       <Box
         display={{ xs: "none", md: "block" }}
         sx={{
-          mt: 5,
           "& .MuiDataGrid-columnHeaders": {
             backgroundColor: "primary.lightest_gray",
             fontSize: 16,
@@ -245,7 +235,7 @@ const OnboardedSchoolsTable = () => {
         display={{ xs: "block", md: "none" }}
         sx={{
           width: "100%",
-          mt: 3,
+          mt: 1,
 
           "& .MuiTab-root": {
             textTransform: "none",
@@ -259,7 +249,6 @@ const OnboardedSchoolsTable = () => {
             return (
               <SchoolInfoCard
                 key={index}
-                // code={field.code}
                 schoolDetail={field}
                 menuOpen={handleSchoolActionsMobile(field)}
               />
