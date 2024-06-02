@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../features/user/userSlice.js";
 import { Link, Outlet, useNavigate, useLocation } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -47,6 +49,7 @@ const NavigationBar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const pathnameArray = location.pathname.split("/");
+  const user = useSelector(selectCurrentUser);
 
   const handleChange = (event, newValue) => {
     setSelectedTab(newValue);
@@ -298,7 +301,7 @@ const NavigationBar = () => {
               <Typography
                 sx={{ fontSize: "1rem", fontWeight: 400, color: "white" }}
               >
-                Steve
+                {user.user_name}
               </Typography>
               <Typography
                 sx={{ fontSize: "0.9rem", fontWeight: 200, color: "white" }}
@@ -323,7 +326,7 @@ const NavigationBar = () => {
         }}
       >
         <UserAppBar />
-        <Box sx={{ mt: 1, flexGrow: 1 }}>
+        <Box sx={{ mt: 13, flexGrow: 1 }}>
           <Outlet />
         </Box>
       </Box>
