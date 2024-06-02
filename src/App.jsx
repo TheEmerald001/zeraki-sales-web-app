@@ -1,35 +1,33 @@
 import react from "react";
 import { Route, Routes } from "react-router-dom";
-import SignIn from "./components/auth/SignIn";
+// styles
 import "./App.css";
+// components
+import SignIn from "./components/auth/SignIn";
 import NavigationBar from "./components/navs/NavigationBar";
-import { Typography } from "@mui/material";
 import SchoolsNav from "./components/navs/SchoolsNav";
 import CreateSchoolForm from "./components/forms/CreateSchoolForm";
 import OnboardedSchoolsTable from "./components/tables/OnboardedSchoolsTable";
+import SchoolDetails from "./components/display_cards/SchoolDetails";
+import AgentDashboard from "./components/dashboard";
+
 function App() {
   return (
     <div className="App">
       <Routes>
         {" "}
         <Route path="/" element={<SignIn />}></Route>
-        <Route path="agent" element={<NavigationBar />}>
+        <Route path="sales" element={<NavigationBar />}>
+        <Route index element={<AgentDashboard />} />
           <Route
             path="dashboard"
-            element={<Typography>Dashboard</Typography>}
+            element={<AgentDashboard/>}
           />
-          <Route path="schools" element={<SchoolsNav homepage={"agent"} />}>
+          <Route path="schools" element={<SchoolsNav homepage={"sales"} />}>
             <Route index element={<OnboardedSchoolsTable />} />
             <Route path="enrol" element={<CreateSchoolForm />} />
+            <Route path="view" element={<SchoolDetails />} />
           </Route>
-          <Route
-            path="invoices"
-            element={<Typography>Invoices</Typography>}
-          ></Route>
-          <Route
-            path="collections"
-            element={<Typography>Collections</Typography>}
-          ></Route>
         </Route>
       </Routes>
     </div>

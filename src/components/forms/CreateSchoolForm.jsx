@@ -94,7 +94,7 @@ const CreateSchoolForm = () => {
               snackbarSeverity: "success",
             });
             setTimeout(() => {
-              navigate("/agent/schools");
+              navigate("/sales/schools");
             }, 2000);
           } else {
             setValues({
@@ -256,13 +256,11 @@ const CreateSchoolForm = () => {
                       <ListItemText primary={option} />
                     </li>
                   )}
-                  style={{ width: 300 }}
                   renderInput={(params) => (
                     <TextField
                       {...params}
                       variant="outlined"
                       label="Zeraki Products"
-                    //   placeholder="Zeraki Products"
                     />
                   )}
                 />
