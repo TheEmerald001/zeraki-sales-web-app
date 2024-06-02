@@ -4,7 +4,7 @@ import { useNavigate, Outlet, useLocation } from "react-router-dom";
 import { Stack, Container, Box, Tabs, Tab } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import SchoolIcon from "@mui/icons-material/School";
-
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 // Functions
 import { getSchools } from "../../api/schools/schools.js";
 const SchoolsNav = ({ homepage }) => {
@@ -19,7 +19,7 @@ const SchoolsNav = ({ homepage }) => {
   const pathnameArray = location.pathname.split("/");
 
   useEffect(() => {
-    if (pathnameArray[3] === undefined || pathnameArray[3] === "view") {
+    if (pathnameArray[3] === undefined) {
       setSelectedTab("all-schools");
     } else if (pathnameArray[3] === "new-school") {
       setSelectedTab("add-school");
@@ -48,6 +48,7 @@ const SchoolsNav = ({ homepage }) => {
             value={selectedTab}
             onChange={handleChange}
             TabIndicatorProps={{ hidden: true }}
+            variant="scrollable"
             sx={{
               "	&.MuiTabs-root": {},
               "& button": {
@@ -70,13 +71,22 @@ const SchoolsNav = ({ homepage }) => {
               onClick={() => navigate(`/${homepage}/schools`)}
               label={`All Schools (${schoolsNumber})`}
             />
+            {selectedTab === "view" && (
+              <Tab
+              icon={<AdminPanelSettingsIcon fontSize="small" />}
+              iconPosition="start"
+              value="view"
+              // onClick={() => navigate("enrol")}
+              label="Management"
+            />
+            )}
             <Tab
               icon={<AddIcon fontSize="small" />}
               iconPosition="start"
               value="enrol"
               onClick={() => navigate("enrol")}
               label="Enrol School"
-            />
+            />            
           </Tabs>
         </Box>
       </Box>
