@@ -7,12 +7,16 @@ export default function Copyright() {
       sx={{
         position: "fixed",
         bottom: 0,
+        right: 0,
         width: "100%",
         display: "flex",
         justifyContent: "center",
+        mt: 2,
+        backgroundColor: "azure"
       }}
+      component="footer"
     >
-      <Typography variant="body2" color="white" align="center">
+      <Typography variant="body2" color="black" align="center">
         {"©  "} {new Date().getFullYear()}{" "}
         
         <Link color="#295FAB" href="https://zeraki.app/">

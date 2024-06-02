@@ -29,6 +29,7 @@ import UserAccountModal from "../modals/UserAccountModal.jsx";
 import DashboardCustomizeOutlinedIcon from "@mui/icons-material/DashboardCustomizeOutlined";
 import SchoolIcon from "@mui/icons-material/School";
 import UserAppBar from "./UserAppBar.jsx";
+import Copyright from "../utilities/Copyright.jsx";
 const pages = [
   {
     label: "Dashboard",
@@ -328,6 +329,7 @@ const NavigationBar = () => {
         <UserAppBar />
         <Box sx={{ mt: 13, flexGrow: 1 }}>
           <Outlet />
+          <Copyright/>
         </Box>
       </Box>
 
