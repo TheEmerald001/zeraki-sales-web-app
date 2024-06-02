@@ -1,4 +1,4 @@
-import moduleAxios from "../axios";
+import { moduleAxios } from "../axios";
 
 // implements apis for school account actions
 // A. Invoices
@@ -9,35 +9,36 @@ export const createInvoice = async (
   due_date,
   amount,
   product,
-  status,
 
-  school_ref
+  schoolId,
+  schoolName
 ) => {
   return await moduleAxios.post(`/invoices`, {
     invoice_number,
     due_date,
     amount,
     product,
-    status,
+    status: "UNPAID",
 
-    school_ref,
+    schoolId,
+    schoolName,
   });
 };
 
 // ii. Update a school Invoice - change details including status
 export const updateInvoice = async (
+  invoice_number,
   due_date,
   amount,
   product,
-  status,
 
   invoice_id
 ) => {
   return await moduleAxios.patch(`/invoices/${invoice_id}`, {
+    invoice_number,
     due_date,
     amount,
     product,
-    status,
   });
 };
 
@@ -46,42 +47,56 @@ export const deleteInvoice = async (invoice_id) => {
   return await moduleAxios.delete(`/invoices/${invoice_id}`);
 };
 
-
 // B. Collections
 // i. create a collection entry
 export const createCollection = async (
-  invoice_number,
-  date_created,
-  date_updated,
   amount,
+  date_created,
+  channel,
   status,
 
-  school_ref,
-  invoice_ref
+  collection_number,
+  invoice_number,
+  school_reg,
+
+  schoolId,
+  invoiceId
 ) => {
   return await moduleAxios.post(`/collections`, {
-    invoice_number,
-    date_created,
-    date_updated,
     amount,
+    date_created,
+    date_updated: date_created,
+    channel,
     status,
 
-    school_ref,
-    invoice_ref,
+    collection_number,
+    invoice_number,
+    school_reg,
+
+    schoolId,
+    invoiceId,
   });
 };
 
 // ii. update collection status
 export const updateCollection = async (
-  date_updated,
-  amount,
   status,
 
   collection_ref
 ) => {
   return await moduleAxios.patch(`/collections/${collection_ref}`, {
-    date_updated,
-    amount,
+    date_updated: new Date(),
+    status,
+  });
+};
+
+// get due invoices
+export const getDueInvoices = async () => {
+  return await moduleAxios.get(`/invoices?_embed=school`);
+};
+
+export const updateInvoiceStatus = async (status, invoiceId) => {
+  return await moduleAxios.patch(`/invoices/${invoiceId}`, {
     status,
   });
 };
