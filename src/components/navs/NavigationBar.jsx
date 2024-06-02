@@ -9,7 +9,6 @@ import {
   Toolbar,
   IconButton,
   Typography,
-  Container,
   Avatar,
   Tooltip,
   ListItem,
@@ -20,7 +19,6 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { store } from "../../store/store.js";
-import CloseIcon from "@mui/icons-material/Close";
 import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
 import LogoutIcon from "@mui/icons-material/Logout";
 import Zeraki_Logo from "../../images/Zeraki_Logo.png";
@@ -28,8 +26,7 @@ import Person_Avatar from "../../images/Person_Avatar.png";
 import UserAccountModal from "../modals/UserAccountModal.jsx";
 import DashboardCustomizeOutlinedIcon from "@mui/icons-material/DashboardCustomizeOutlined";
 import SchoolIcon from "@mui/icons-material/School";
-import DescriptionIcon from "@mui/icons-material/Description";
-import LibraryAddCheckIcon from "@mui/icons-material/LibraryAddCheck";
+import UserAppBar from "./UserAppBar.jsx";
 const pages = [
   {
     label: "Dashboard",
@@ -40,16 +37,6 @@ const pages = [
     label: "Schools",
     icon: <SchoolIcon sx={{ mr: 2 }} fontSize="small" />,
     value: "schools",
-  },
-  {
-    label: "Invoices",
-    icon: <DescriptionIcon sx={{ mr: 2 }} fontSize="small" />,
-    value: "invoices",
-  },
-  {
-    label: "Collections",
-    icon: <LibraryAddCheckIcon sx={{ mr: 2 }} fontSize="small" />,
-    value: "collections",
   },
 ];
 const NavigationBar = () => {
@@ -137,7 +124,7 @@ const NavigationBar = () => {
           <Box
             sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
             component={Link}
-            to={"/agent/dashboard"}
+            to={"/sales/dashboard"}
           >
             <img
               alt="Zeraki"
@@ -286,7 +273,7 @@ const NavigationBar = () => {
 
           <Box
             component={Link}
-            to={"/agent/dashboard"}
+            to={"/sales/dashboard"}
             sx={{
               display: { xs: "flex", md: "none" },
             }}
@@ -301,23 +288,17 @@ const NavigationBar = () => {
               }}
             />
           </Box>
-
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Tooltip title="Log Out">
-              <IconButton onClick={handleLogOut} sx={{ color: "white" }}>
-                <LogoutIcon color="error" />
-              </IconButton>
-            </Tooltip>
             <Tooltip title="My Profile">
               <IconButton onClick={handleUserAccount}>
                 <Avatar alt="S-Admin" src={Person_Avatar} />
               </IconButton>
             </Tooltip>
-            <Box sx={{ ml: 1, textAlign: "right" }}>
+            <Box sx={{ mr: 1, textAlign: "right" }}>
               <Typography
                 sx={{ fontSize: "1rem", fontWeight: 400, color: "white" }}
               >
-                Cess Alinda
+                Steve
               </Typography>
               <Typography
                 sx={{ fontSize: "0.9rem", fontWeight: 200, color: "white" }}
@@ -336,20 +317,24 @@ const NavigationBar = () => {
         sx={{
           display: { xs: "none", md: "flex" },
           flexGrow: 1,
-          p: 2,
+          flexDirection: "column",
           width: { md: `calc(100% - 240px)` },
-          ml: "240px",
+          ml: { md: "240px" },
         }}
       >
-        <Outlet />
+        <UserAppBar />
+        <Box sx={{ mt: 1, flexGrow: 1 }}>
+          <Outlet />
+        </Box>
       </Box>
 
       <Box
         sx={{
           display: { xs: "flex", md: "none" },
           flexGrow: 1,
-          p: 2,
-          mt: 10,
+          p: 1,
+          mt: 11,
+          ml: -2,
         }}
       >
         <Outlet />
