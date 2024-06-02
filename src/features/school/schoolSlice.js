@@ -27,7 +27,7 @@ const schoolSlice = createSlice({
 export const {
   setSchoolDetails,
   setSchoolInvoices,
-  SchoolCollections,
+  setSchoolCollections,
 } = schoolSlice.actions;
 
 export const selectSchoolDetails = (state) =>
