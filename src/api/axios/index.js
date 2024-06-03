@@ -10,4 +10,4 @@ function createModuleAxios(baseURL) {
   return axiosInstance;
 }
 
-export const moduleAxios = createModuleAxios("https://zeraki-json-mock-server.onrender.com")
+export const moduleAxios = createModuleAxios("https://zeraki-server-brgft.ondigitalocean.app")
