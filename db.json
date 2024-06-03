@@ -1,5 +1,12 @@
 {
-  "users": [],
+  "users": [
+    {
+      "id": "166c",
+      "user_name": "Steve 23",
+      "email": "austines811+zeraki@gmail.com",
+      "password": "Da1maMk3nya"
+    }
+  ],
   "schools": [],
   "invoices": [],
   "collections": []
