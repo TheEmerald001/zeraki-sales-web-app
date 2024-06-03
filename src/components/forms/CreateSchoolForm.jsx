@@ -174,11 +174,8 @@ const CreateSchoolForm = () => {
                     onChange={handleChange("school_type")}
                   >
                     <MenuItem value="PRIMARY">Primary</MenuItem>
-                    <MenuItem value="JUNIOR_SECONDARY">
-                      Junior Secondary
-                    </MenuItem>
                     <MenuItem value="SECONDARY">Secondary</MenuItem>
-                    <MenuItem value="HIGH">IGCSE</MenuItem>
+                    <MenuItem value="IGCSE">IGCSE</MenuItem>
                   </Select>
                 </Box>
                 <Box sx={{ mt: 2 }}>

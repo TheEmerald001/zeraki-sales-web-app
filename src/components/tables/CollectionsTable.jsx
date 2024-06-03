@@ -6,10 +6,8 @@ import {
   Card,
   Chip,
   Switch,
-  useTheme,
   Typography,
   LinearProgress,
-  IconButton,
   Box,
 } from "@mui/material";
 import { red, green } from "@mui/material/colors";
@@ -38,6 +36,7 @@ const CollectionsTable = ({ updateInvoiceList }) => {
   }, []);
 
   function getChipProps(params) {
+    console.log(params)
     if (params.value === "valid") {
       return {
         label: "VALID",
@@ -188,6 +187,8 @@ const CollectionsTable = ({ updateInvoiceList }) => {
               <CollectionOverviewCard
                 collection={field}
                 statusFunc={getChipProps}
+                handleMarkBounce={handleMarkBounce}
+                handleMarkValid={handleMarkValid}
               />
             );
           })}

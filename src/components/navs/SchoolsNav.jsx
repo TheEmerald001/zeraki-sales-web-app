@@ -4,7 +4,7 @@ import { useNavigate, Outlet, useLocation } from "react-router-dom";
 import { Stack, Container, Box, Tabs, Tab } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import SchoolIcon from "@mui/icons-material/School";
-import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 // Functions
 import { getSchools } from "../../api/schools/schools.js";
 const SchoolsNav = ({ homepage }) => {
@@ -35,64 +35,54 @@ const SchoolsNav = ({ homepage }) => {
   });
   return (
     <Container maxWidth="xl">
-      <Box
-        sx={{
-          mt: 0,
-          "& .MuiTab-root": {
-            textTransform: "none",
-          },
-        }}
-      >
-        <Box>
-          <Tabs
-            value={selectedTab}
-            onChange={handleChange}
-            TabIndicatorProps={{ hidden: true }}
-            variant="scrollable"
-            sx={{
-              "	&.MuiTabs-root": {},
-              "& button": {
-                width: 200,
-                marginRight: 0,
-                color: "primary.main",
-                backgroundColor: "primary.lightest_tint",
-                fontSize: "1rem",
-              },
-              "& button.Mui-selected": {
-                color: "white",
-                backgroundColor: "primary.main",
-              },
-            }}
-          >
+      <Box>
+        <Tabs
+          value={selectedTab}
+          onChange={handleChange}
+          TabIndicatorProps={{ hidden: true }}
+          variant="scrollable"
+          sx={{
+            "	&.MuiTabs-root": {},
+            "& button": {
+              width: 200,
+              marginRight: 0,
+              color: "primary.main",
+              backgroundColor: "primary.lightest_tint",
+              fontSize: "1rem",
+            },
+            "& button.Mui-selected": {
+              color: "white",
+              backgroundColor: "primary.main",
+            },
+          }}
+        >
+          <Tab
+            value="all-schools"
+            icon={<SchoolIcon fontSize="small" />}
+            iconPosition="start"
+            onClick={() => navigate(`/${homepage}/schools`)}
+            label={`All Schools (${schoolsNumber})`}
+          />
+          {selectedTab === "view" && (
             <Tab
-              value="all-schools"
-              icon={<SchoolIcon fontSize="small" />}
-              iconPosition="start"
-              onClick={() => navigate(`/${homepage}/schools`)}
-              label={`All Schools (${schoolsNumber})`}
-            />
-            {selectedTab === "view" && (
-              <Tab
               icon={<AdminPanelSettingsIcon fontSize="small" />}
               iconPosition="start"
               value="view"
-              // onClick={() => navigate("enrol")}
               label="Management"
             />
-            )}
-            <Tab
-              icon={<AddIcon fontSize="small" />}
-              iconPosition="start"
-              value="enrol"
-              onClick={() => navigate("enrol")}
-              label="Enrol School"
-            />            
-          </Tabs>
-        </Box>
+          )}
+          <Tab
+            icon={<AddIcon fontSize="small" />}
+            iconPosition="start"
+            value="enrol"
+            onClick={() => navigate("enrol")}
+            label="Enrol School"
+          />
+        </Tabs>
       </Box>
-      <Stack sx={{ bgcolor: "background.paper", m:1 }}>
+      <Box sx={{ bgcolor: "background.paper" }}>
         <Outlet />
-      </Stack>
+      </Box>
     </Container>
   );
 };

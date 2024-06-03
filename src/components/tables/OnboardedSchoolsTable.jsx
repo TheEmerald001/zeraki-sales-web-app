@@ -164,13 +164,13 @@ const OnboardedSchoolsTable = () => {
       <Box
         display={{ xs: "block", md: "none" }}
         sx={{
-          width: "100%",
-          mt: 1,
+          // width: "100%",
+          // mt: 1,
 
-          "& .MuiTab-root": {
-            textTransform: "none",
-            fontSize: "1rem",
-          },
+          // "& .MuiTab-root": {
+          //   textTransform: "none",
+          //   fontSize: "1rem",
+          // },
         }}
       >
         {loading && <LinearProgress />}

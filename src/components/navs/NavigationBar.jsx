@@ -122,7 +122,7 @@ const NavigationBar = () => {
         <Toolbar
           sx={{
             backgroundColor: "#fff",
-            p: 2,
+            p: 4,
           }}
         >
           <Box
@@ -246,7 +246,7 @@ const NavigationBar = () => {
             </IconButton>
           </Box>
           <Drawer
-            anchor="bottom"
+            anchor="top"
             open={open}
             onClose={toggleDrawer(false)}
             onOpen={toggleDrawer(true)}
@@ -338,7 +338,7 @@ const NavigationBar = () => {
           display: { xs: "flex", md: "none" },
           flexGrow: 1,
           p: 1,
-          mt: 11,
+          mt: 1,
           ml: -2,
         }}
       >

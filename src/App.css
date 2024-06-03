@@ -1,16 +1,34 @@
-/* .App {
-  font-family: "IBM Plex Sans";
-} */
-
 body {
   background-color: #fff;
   margin: 0;
+  width: 100vw;
   font-family: "IBM Plex Sans";
+  overflow-x: hidden; 
+}
+@media (max-width: 768px) {
+  .dashcomp {
+    margin-top: 20%;
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    min-height: 100vh; /* Ensure full viewport height */
+  }
+}
+@media (max-width: 768px) {
+  .invoiceTable {
+    margin-top: 15%;
+  }
+}
+/* Ensure all elements fit within the viewport */
+*, *::before, *::after {
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .MuiDataGrid-root .MuiDataGrid-cell {
   border-bottom: none !important;
 }
+
 .MuiDataGrid-sortIcon {
   opacity: inherit !important;
 }
@@ -18,4 +36,8 @@ body {
 .MuiDataGrid-iconButtonContainer {
   visibility: visible;
   width: 0 !important;
+}
+
+html, body {
+  overflow-y: auto; 
 }

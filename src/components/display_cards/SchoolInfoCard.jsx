@@ -8,7 +8,7 @@ export default function SchoolInfoCard({ schoolDetail, menuOpen }) {
       <Card
         sx={{
           backgroundColor: "primary.lightest_tint",
-          m: 1,
+          mb: 1,
         }}
       >
         <CardHeader
