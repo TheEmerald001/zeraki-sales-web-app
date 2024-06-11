@@ -4,11 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "concurrently \"vite dev\" \"json-server db.json --port=4000\"",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "server": "json-server --watch db.json --port=4000"
+    "server": "json-server db.json --port=4000"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
@@ -16,12 +15,14 @@
     "@mui/icons-material": "^5.15.19",
     "@mui/lab": "^5.0.0-alpha.170",
     "@mui/material": "^5.15.19",
-    "@mui/x-data-grid": "^6.9.0",    
+    "@mui/x-data-grid": "^6.9.0",
     "@mui/x-date-pickers": "^5.0.0",
     "@reduxjs/toolkit": "^1.9.7",
     "axios": "^1.7.2",
+    "concurrently": "^8.2.2",
     "countries-list": "^2.6.1",
     "dayjs": "^1.11.7",
+    "http-proxy-middleware": "^3.0.0",
     "json-server": "^1.0.0-beta.0",
     "moment": "^2.29.4",
     "react": "^18.2.0",

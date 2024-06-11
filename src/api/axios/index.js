@@ -9,5 +9,4 @@ function createModuleAxios(baseURL) {
   });
   return axiosInstance;
 }
-
-export const moduleAxios = createModuleAxios("https://zeraki-server-brgft.ondigitalocean.app")
+export const moduleAxios = createModuleAxios("http://localhost:4000")

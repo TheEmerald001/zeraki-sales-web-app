@@ -7,7 +7,370 @@
       "password": "Da1maMk3nya"
     }
   ],
-  "schools": [],
-  "invoices": [],
-  "collections": []
+  "schools": [
+    {
+      "id": "f916",
+      "name": "Lenana School",
+      "school_type": "SECONDARY",
+      "location": "Nairobi",
+      "registration_number": "LHSNRB",
+      "country": "KE",
+      "date_enrolled": "2024-06-03T04:57:08.653Z",
+      "contact": "whiterose@ac.ke",
+      "products": [
+        "Zeraki Analytics",
+        "Zeraki Finance",
+        "Zeraki Timetable"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "id": "b5a8",
+      "name": "Braeburn International",
+      "school_type": "IGCSE",
+      "location": "Kajiado",
+      "registration_number": "BRINTL",
+      "country": "KE",
+      "date_enrolled": "2024-06-03T05:00:48.503Z",
+      "contact": "020145541",
+      "products": [
+        "Zeraki Analytics",
+        "Zeraki Timetable"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "id": "78fe",
+      "name": "Saint Gee",
+      "school_type": "PRIMARY",
+      "location": "Kiambu",
+      "registration_number": "SGGHS",
+      "country": "KE",
+      "date_enrolled": "2024-06-03T05:03:43.304Z",
+      "contact": "stgee@gmail.com",
+      "products": [
+        "Zeraki Finance",
+        "Zeraki Timetable"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "id": "2802",
+      "name": "Maranda Highschool",
+      "school_type": "SECONDARY",
+      "location": "Kisumu",
+      "registration_number": "MRHS",
+      "country": "KE",
+      "date_enrolled": "2024-06-03T05:06:45.996Z",
+      "contact": "07154551",
+      "products": [
+        "Zeraki Analytics",
+        "Zeraki Finance",
+        "Zeraki Timetable"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "id": "9822",
+      "name": "Kakamega HillSchool",
+      "school_type": "PRIMARY",
+      "location": "Kakamega",
+      "registration_number": "KKHS",
+      "country": "KE",
+      "date_enrolled": "2024-06-03T05:08:24.267Z",
+      "contact": "kkhillschool@gmail.com",
+      "products": [
+        "Zeraki Timetable",
+        "Zeraki Finance"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "id": "1761",
+      "name": "Makks School",
+      "school_type": "PRIMARY",
+      "location": "Nairobi",
+      "registration_number": "MAKS10",
+      "country": "KE",
+      "date_enrolled": "2024-06-03T13:06:45.945Z",
+      "contact": "0792257242",
+      "products": [
+        "Zeraki Finance"
+      ],
+      "status": "ACTIVE"
+    }
+  ],
+  "invoices": [
+    {
+      "id": "f496",
+      "invoice_number": "LS-ZT-INV-NH7U",
+      "due_date": "2024-08-10",
+      "amount": "15000",
+      "product": "Zeraki Timetable",
+      "status": "PAID UP",
+      "schoolId": "f916",
+      "schoolName": "Lenana School"
+    },
+    {
+      "id": "7635",
+      "invoice_number": "LS-ZF-INV-CIXI",
+      "due_date": "2024-08-01",
+      "amount": "20000",
+      "product": "Zeraki Finance",
+      "status": "PAID UP",
+      "schoolId": "f916",
+      "schoolName": "Lenana School"
+    },
+    {
+      "id": "2e6c",
+      "invoice_number": "LS-ZA-INV-SSOJ",
+      "due_date": "2024-07-30",
+      "amount": "30000",
+      "product": "Zeraki Analytics",
+      "status": "PAID UP",
+      "schoolId": "f916",
+      "schoolName": "Lenana School"
+    },
+    {
+      "id": "06bd",
+      "invoice_number": "BI-ZA-INV-USMB",
+      "due_date": "2024-07-05",
+      "amount": "35000",
+      "product": "Zeraki Analytics",
+      "status": "PAID UP",
+      "schoolId": "b5a8",
+      "schoolName": "Braeburn International"
+    },
+    {
+      "id": "b5d8",
+      "invoice_number": "BI-ZT-INV-C8SD",
+      "due_date": "2024-06-20",
+      "amount": "20000",
+      "product": "Zeraki Timetable",
+      "status": "ARREARS",
+      "schoolId": "b5a8",
+      "schoolName": "Braeburn International"
+    },
+    {
+      "id": "d9e3",
+      "invoice_number": "SG-ZF-INV-NGC3",
+      "due_date": "2024-08-10",
+      "amount": "12000",
+      "product": "Zeraki Finance",
+      "status": "PAID UP",
+      "schoolId": "78fe",
+      "schoolName": "Saint Gee"
+    },
+    {
+      "id": "9a2a",
+      "invoice_number": "SG-ZT-INV-T551",
+      "due_date": "2024-08-15",
+      "amount": "6500",
+      "product": "Zeraki Timetable",
+      "status": "UNPAID",
+      "schoolId": "78fe",
+      "schoolName": "Saint Gee"
+    },
+    {
+      "id": "ad88",
+      "invoice_number": "MH-ZF-INV-5LIM",
+      "due_date": "2024-08-20",
+      "amount": "8545",
+      "product": "Zeraki Finance",
+      "status": "PAID UP",
+      "schoolId": "2802",
+      "schoolName": "Maranda Highschool"
+    },
+    {
+      "id": "7e33",
+      "invoice_number": "KH-ZF-INV-0GA7",
+      "due_date": "2024-08-01",
+      "amount": "25000",
+      "product": "Zeraki Finance",
+      "status": "UNPAID",
+      "schoolId": "9822",
+      "schoolName": "Kakamega HillSchool"
+    },
+    {
+      "id": "8786",
+      "invoice_number": "M-ZF-INV-K0Y3",
+      "due_date": "2024-08-20",
+      "amount": "2580",
+      "product": "Zeraki Finance",
+      "status": "ARREARS",
+      "schoolId": "1761",
+      "schoolName": "makkks"
+    }
+  ],
+  "collections": [
+    {
+      "id": "e78b",
+      "amount": "30000",
+      "date_created": "2024-06-03T04:59:02.079Z",
+      "date_updated": "2024-06-03T04:59:02.079Z",
+      "channel": "Cheque",
+      "status": "valid",
+      "collection_number": "LS-CQ-CLC-AI23",
+      "invoice_number": "LS-ZA-INV-SSOJ",
+      "school_reg": "LHSNRB",
+      "schoolId": "f916",
+      "invoiceId": "2e6c"
+    },
+    {
+      "id": "a8d3",
+      "amount": "20000",
+      "date_created": "2024-06-03T04:59:17.871Z",
+      "date_updated": "2024-06-03T04:59:17.871Z",
+      "channel": "Bank Deposit",
+      "status": "valid",
+      "collection_number": "LS-BD-CLC-H81B",
+      "invoice_number": "LS-ZF-INV-CIXI",
+      "school_reg": "LHSNRB",
+      "schoolId": "f916",
+      "invoiceId": "7635"
+    },
+    {
+      "id": "e62e",
+      "amount": "10000",
+      "date_created": "2024-06-03T04:59:39.058Z",
+      "date_updated": "2024-06-03T04:59:39.058Z",
+      "channel": "Cash",
+      "status": "valid",
+      "collection_number": "LS-CH-CLC-3W96",
+      "invoice_number": "LS-ZT-INV-NH7U",
+      "school_reg": "LHSNRB",
+      "schoolId": "f916",
+      "invoiceId": "f496"
+    },
+    {
+      "id": "da8e",
+      "amount": "35000",
+      "date_created": "2024-06-03T05:01:51.745Z",
+      "date_updated": "2024-06-03T05:01:51.745Z",
+      "channel": "Bank Deposit",
+      "status": "valid",
+      "collection_number": "BI-BD-CLC-MQX2",
+      "invoice_number": "BI-ZA-INV-USMB",
+      "school_reg": "BRINTL",
+      "schoolId": "b5a8",
+      "invoiceId": "06bd"
+    },
+    {
+      "id": "cafe",
+      "amount": "15000",
+      "date_created": "2024-06-03T05:02:11.809Z",
+      "date_updated": "2024-06-03T05:02:11.809Z",
+      "channel": "Cheque",
+      "status": "valid",
+      "collection_number": "BI-CQ-CLC-DY09",
+      "invoice_number": "BI-ZT-INV-C8SD",
+      "school_reg": "BRINTL",
+      "schoolId": "b5a8",
+      "invoiceId": "b5d8"
+    },
+    {
+      "id": "ce1d",
+      "amount": "12000",
+      "date_created": "2024-06-03T05:05:09.232Z",
+      "date_updated": "2024-06-03T05:05:09.232Z",
+      "channel": "Cheque",
+      "status": "valid",
+      "collection_number": "SG-CQ-CLC-1MBB",
+      "invoice_number": "SG-ZF-INV-NGC3",
+      "school_reg": "SGGHS",
+      "schoolId": "78fe",
+      "invoiceId": "d9e3"
+    },
+    {
+      "id": "1494",
+      "amount": "8545",
+      "date_created": "2024-06-03T05:07:24.137Z",
+      "date_updated": "2024-06-03T05:07:24.137Z",
+      "channel": "Cheque",
+      "status": "valid",
+      "collection_number": "MH-CQ-CLC-9CCO",
+      "invoice_number": "MH-ZF-INV-5LIM",
+      "school_reg": "MRHS",
+      "schoolId": "2802",
+      "invoiceId": "ad88"
+    },
+    {
+      "id": "2fab",
+      "amount": "1000",
+      "date_created": "2024-06-03T12:27:09.677Z",
+      "date_updated": "2024-06-03T12:27:09.677Z",
+      "channel": "Cash",
+      "status": "valid",
+      "collection_number": "BI-CH-CLC-ROLV",
+      "invoice_number": "BI-ZT-INV-C8SD",
+      "school_reg": "Braeburn International",
+      "schoolId": "b5a8",
+      "invoiceId": "b5d8"
+    },
+    {
+      "id": "3219",
+      "amount": "35000",
+      "date_created": "2024-06-03T12:27:22.121Z",
+      "date_updated": "2024-06-03T12:27:22.121Z",
+      "channel": "Bank Deposit",
+      "status": "valid",
+      "collection_number": "BI-BD-CLC-ZL6I",
+      "invoice_number": "BI-ZA-INV-USMB",
+      "school_reg": "Braeburn International",
+      "schoolId": "b5a8",
+      "invoiceId": "06bd"
+    },
+    {
+      "id": "52d5",
+      "amount": "15000",
+      "date_created": "2024-06-03T12:27:39.035Z",
+      "date_updated": "2024-06-03T12:27:39.035Z",
+      "channel": "Cash",
+      "status": "valid",
+      "collection_number": "LS-CH-CLC-OR6B",
+      "invoice_number": "LS-ZT-INV-NH7U",
+      "school_reg": "Lenana School",
+      "schoolId": "f916",
+      "invoiceId": "f496"
+    },
+    {
+      "id": "e9a8",
+      "amount": "1000",
+      "date_created": "2024-06-03T13:06:13.783Z",
+      "date_updated": "2024-06-03T13:06:13.783Z",
+      "channel": "Cash",
+      "status": "valid",
+      "collection_number": "BI-CH-CLC-N8DR",
+      "invoice_number": "BI-ZT-INV-C8SD",
+      "school_reg": "Braeburn International",
+      "schoolId": "b5a8",
+      "invoiceId": "b5d8"
+    },
+    {
+      "id": "45f5",
+      "amount": "2580",
+      "date_created": "2024-06-03T13:32:24.985Z",
+      "date_updated": "2024-06-03T13:32:24.985Z",
+      "channel": "Cheque",
+      "status": "valid",
+      "collection_number": "M-CQ-CLC-7HJ5",
+      "invoice_number": "M-ZF-INV-K0Y3",
+      "school_reg": "1000",
+      "schoolId": "1761",
+      "invoiceId": "8786"
+    },
+    {
+      "id": "54d3",
+      "amount": "400",
+      "date_created": "2024-06-06T12:49:36.302Z",
+      "date_updated": "2024-06-06T12:49:36.302Z",
+      "channel": "Cheque",
+      "status": "valid",
+      "collection_number": "M-CQ-CLC-JT4R",
+      "invoice_number": "M-ZF-INV-K0Y3",
+      "school_reg": "makkks",
+      "schoolId": "1761",
+      "invoiceId": "8786"
+    }
+  ]
 }
