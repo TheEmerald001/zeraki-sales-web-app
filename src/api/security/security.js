@@ -10,8 +10,8 @@ export const createAccount = async (user_name, email, password) => {
 };
 
 // basic api security - modified to match mock spec
-export const userLogIn = async (user_name, password) => {
-  return await moduleAxios.get(`/users`);
+export const userLogIn =  () => {
+  return  moduleAxios.get(`/users`);
 };
 
 // change user credentials

@@ -2,8 +2,8 @@ import { moduleAxios } from "../axios";
 
 //  Implements API Endpoints for School (and actions)
 //  i. View all schools
-export const getSchools = async () => {
-  return await moduleAxios.get(`/schools`);
+export const getSchools =  () => {
+  return moduleAxios.get(`/schools`);
 };
 
 // ii. Create a new School
