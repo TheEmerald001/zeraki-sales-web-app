@@ -1,22 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import {
-  Typography,
-  Avatar,
-  Button,
-  Menu,
-  MenuItem,
-  Box,
-  LinearProgress,
-  Chip,
-} from "@mui/material";
+import { Typography, Avatar, Button, Box, Chip } from "@mui/material";
 import { red, green } from "@mui/material/colors";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import CustomDataGrid from "../utilities/CustomDataGrid";
-
+import { selectSchoolsList } from "../../features/school/schoolSlice.js";
 // Functions
-import { getSchools } from "../../api/schools/schools.js";
 import { setSchoolDetails } from "../../features/school/schoolSlice.js";
 import SchoolInfoCard from "../display_cards/SchoolInfoCard.jsx";
 
@@ -47,33 +37,17 @@ function getChipProps(params) {
 }
 
 const OnboardedSchoolsTable = () => {
-  const [schoolsData, setSchoolsData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const schoolsData = useSelector(selectSchoolsList);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
   const handleSchoolActionsClick = (params) => {
     dispatch(setSchoolDetails({ schoolDetails: params.row }));
     navigate("view");
   };
-  const handleSchoolActionsMobile = (params)  => {
+  const handleSchoolActionsMobile = (params) => {
     dispatch(setSchoolDetails({ schoolDetails: params }));
     navigate("view");
   };
-
-
-  const fetchSchools = () => {
-    setLoading(true);
-    getSchools().then((res) => {
-      setSchoolsData(res.data);
-      setLoading(false);
-    });
-  };
-
-  useEffect(() => {
-    fetchSchools();
-  }, []);
- 
 
   const columns = [
     {
@@ -158,22 +132,9 @@ const OnboardedSchoolsTable = () => {
           },
         }}
       >
-        {loading && <LinearProgress />}
-        {!loading && <CustomDataGrid rows={schoolsData} columns={columns} />}
+        {<CustomDataGrid rows={schoolsData} columns={columns} />}
       </Box>
-      <Box
-        display={{ xs: "block", md: "none" }}
-        sx={{
-          // width: "100%",
-          // mt: 1,
-
-          // "& .MuiTab-root": {
-          //   textTransform: "none",
-          //   fontSize: "1rem",
-          // },
-        }}
-      >
-        {loading && <LinearProgress />}
+      <Box display={{ xs: "block", md: "none" }}>
         {schoolsData.length > 0 &&
           schoolsData.map((field, index) => {
             return (

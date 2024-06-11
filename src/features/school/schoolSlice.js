@@ -6,6 +6,7 @@ const schoolSlice = createSlice({
     schoolDetails: null,
     schoolInvoices: null,
     schoolCollections: null,
+    schoolsList: null
   },
   reducers: {
     setSchoolDetails: (state, action) => {
@@ -20,6 +21,10 @@ const schoolSlice = createSlice({
       const { schoolCollections } = action.payload;
       state.schoolCollections = schoolCollections;
     },
+    setSchoolsList: (state, action) => {
+      const { schoolsList } = action.payload;
+      state.schoolsList = schoolsList;
+    },
   },
   // extraReducers: {},
 });
@@ -28,14 +33,17 @@ export const {
   setSchoolDetails,
   setSchoolInvoices,
   setSchoolCollections,
+  setSchoolsList,
 } = schoolSlice.actions;
 
 export const selectSchoolDetails = (state) =>
   state?.school?.schoolDetails;
 export const selectSchoolInvoices = (state) =>
   state?.school?.schoolInvoices;
+export const selectSchoolsList = (state) =>
+state?.school?.schoolsList;
 export const selectSchoolCollections = (state) =>
-state?.school?.schoolCollections;
+  state?.school?.schoolCollections;
 
 
 export default schoolSlice.reducer;

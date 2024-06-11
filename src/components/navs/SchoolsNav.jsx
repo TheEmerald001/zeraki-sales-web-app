@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
-
+import { useSelector } from "react-redux";
 import { useNavigate, Outlet, useLocation } from "react-router-dom";
 import { Stack, Container, Box, Tabs, Tab } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import SchoolIcon from "@mui/icons-material/School";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
-// Functions
-import { getSchools } from "../../api/schools/schools.js";
+import { selectSchoolsList } from "../../features/school/schoolSlice.js";
 const SchoolsNav = ({ homepage }) => {
   const [selectedTab, setSelectedTab] = React.useState("all-schools");
   const [schoolsNumber, setSchoolsNumber] = useState("");
-
+  const schools = useSelector(selectSchoolsList)
   const handleChange = (event, newValue) => {
     setSelectedTab(newValue);
   };
@@ -29,9 +28,8 @@ const SchoolsNav = ({ homepage }) => {
   }, [pathnameArray]);
 
   useEffect(() => {
-    getSchools().then((res) => {
-      setSchoolsNumber(res.data.length);
-    });
+      setSchoolsNumber(schools.length);
+    
   });
   return (
     <Container maxWidth="xl">
